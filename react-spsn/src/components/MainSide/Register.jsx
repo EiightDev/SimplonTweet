@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 class Register extends React.Component {
   render() {
     return (
-      <div>
+      <div className="mx-5">
         <h4 className="mb-3">S'inscrire</h4>
         <form className="needs-validation" noValidate="">
           <div className="row">

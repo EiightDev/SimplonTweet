@@ -38,8 +38,8 @@ bower_components
 build/Release
 
 # Dependency directories
-api-stsn/node_modules/
-front-stsn/node_modules/
+api-spsn/node_modules/
+react-spsn/node_modules/
 node_modules/
 jspm_packages/
 

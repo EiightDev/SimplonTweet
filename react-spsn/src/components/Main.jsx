@@ -9,7 +9,7 @@ import SignIn from "./MainSide/Signin";
 class Main extends React.Component {
   render() {
     return (
-      <main className="col-md-8 order-md-2">
+      <main className="conatainer col-md-8 order-md-2 py-5">
         <Router>
           <Switch>
             <Route exact path="/register" component={Register} />

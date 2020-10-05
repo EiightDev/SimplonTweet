@@ -5,7 +5,7 @@ import NavSide from "./Nav";
 class Test extends React.Component {
   render() {
     return (
-      <div className="row body">
+      <div className="row">
         <NavSide />
         <Main />
       </div>

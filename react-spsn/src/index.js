@@ -8,7 +8,7 @@ import './index.css'
 
 function App() {
   return (
-    <div className='fullContainer container'>
+    <div className='container'>
     <Body />
     </div>
   );

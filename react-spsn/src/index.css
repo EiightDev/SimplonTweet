@@ -1,18 +1,22 @@
  body {
-  background-color: azure;
+  background-color: #e6ecf0;
   justify-content: center;
-  max-width: 1400px;
+
   height: 100vh;
-  padding: 20px;
   overflow-x: hidden ;
 }
 h6 {
   margin: 15px 0px;
 }
-.body{
-  height: calc(100vh - 40px);
-}
 
+nav, main{
+  height: calc(100vh - 40px);
+  margin: 20px 0;
+}
+nav div, main div{
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
 .badge {
   display: flex;
   flex-flow: row wrap;

@@ -1,0 +1,15 @@
+    Requete pour inserer un nouvel utilisateur :
+
+INSERT INTO `users` (`id_users`, `nom_users`, `prenom_users`, `pseudo_users`, `mail_users`, `passeword_users`) VALUES (NULL, 'Roger', 'Fabien', 'FabRo', 'fabien@roger.com', 'FabienRoger mdp');
+
+    Requete pour inserer un nouveau post :
+
+INSERT INTO `users_posts` (`id_post`, `content_post`, `createAt_post`, `modifyAt_post`, `author_post`) VALUES (NULL, 'Salut, je suis Fabien , le nouvel utilisateur, Ceci est un poste', '2020-10-02 00:00:00', CURRENT_TIME(), '1');
+
+    Requete pour inserer un follow
+
+INSERT INTO `follow` (`id_suivi`, `id_suiveur`) VALUES ('1', '2');
+
+    Requete pour mettre à jour 
+
+UPDATE `users` SET `passeword_users` = 'FabienRogermdp' WHERE `users`.`id_users` = 1; 
