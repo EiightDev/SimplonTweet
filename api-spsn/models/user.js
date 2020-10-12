@@ -33,6 +33,12 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+  }, {
+    classMethods: {
+      associates: (models) => {
+        models.user.hasMany(models.post)
+      }
+    }
   });
   return user; //On retourne le model de la table
 };

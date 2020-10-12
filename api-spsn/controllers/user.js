@@ -10,25 +10,33 @@ exports.init = function (bdd) {
       });
     },
     login: function (req, res) {
-      bdd.models.User.findOne({ where: { pseudo_users: req.body.pseudo } })
-        .then((user) => {
-          bcrypt.compare(req.body.password, user.password_users, function (
-            err,
-            result
-          ) {
-            if (result) {
-              let token = jwt.sign(
-                { id_user: user.id },
-                process.env.SECRET_KEY,
-                { expiresIn: "7d" }
-              );
-              res.status(200).json(token);
-            } else res.status(400).json("password do not match");
+      if (req.body.pseudo == null || req.body.password == null) {
+        res.status(400).json("il manque des paramètres");
+      } else if (req.body.pseudo > 16 || req.body.pseudo < 3) {
+        res
+          .status(400)
+          .json("le pseudo n'est pas au bon format(entre 3 et 16 charactéres ");
+      } else {
+        bdd.models.User.findOne({ where: { pseudo_users: req.body.pseudo } })
+          .then((user) => {
+            bcrypt.compare(req.body.password, user.password_users, function (
+              err,
+              result
+            ) {
+              if (result) {
+                let token = jwt.sign(
+                  { id_user: user.id },
+                  process.env.SECRET_KEY,
+                  { expiresIn: "7d" }
+                );
+                res.status(200).json(token);
+              } else res.status(400).json("password do not match");
+            });
+          })
+          .catch((err) => {
+            res.status(400).json(err);
           });
-        })
-        .catch((err) => {
-          res.status(400).json(err);
-        });
+      }
     },
     register: function (req, res) {
       bcrypt.hash(req.body.password, 10, function (err, hash) {
@@ -47,7 +55,7 @@ exports.init = function (bdd) {
             .catch((err) => {
               res.status(400).json(err);
             });
-          }
+        }
       });
     },
   };

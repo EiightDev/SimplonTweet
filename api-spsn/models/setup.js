@@ -14,9 +14,13 @@ const sequelize = new Sequelize(
 
 // appel du models dans user auquel on insere un parametre de connexion à la base
 let user = require("./user")(sequelize);
+let post = require("./post_users")(sequelize);
+let follow = require("./follow")(sequelize);
 
 const models = {
   User: user,
+  Post: post,
+  Follow: follow
 };
 
 exports.sequelize = sequelize;
