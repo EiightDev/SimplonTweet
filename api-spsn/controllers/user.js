@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const EMAIL_REGEX     = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const PASSWORD_REGEX  = /^(?=.*\d).{4,8}$/;
+
 exports.init = function (bdd) {
   return {
     getAll: function (req, res) {
-      bdd.query("SELECT * FROM users", function (err, result, fields) {
-        if (!err) res.send(result);
-        else res.send(err);
-      });
+      bdd.models.User.findAll().then((result) => res.send(result)).catch((err) => res.send(err))
     },
     login: function (req, res) {
       if (req.body.pseudo == null || req.body.password == null) {

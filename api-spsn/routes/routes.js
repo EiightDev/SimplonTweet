@@ -4,7 +4,7 @@ exports.init = function (bdd) {
     userController = require('../controllers/user').init(bdd),
     middleware = require('../middleware/auth')();
     
-    router.get('/getUsers', userController.getAll);
+    router.get('/getUsers', middleware.auth, userController.getAll);
     router.post('/signin', middleware.auth, userController.login);
     router.post('/register', userController.register)
 
