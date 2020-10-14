@@ -25,7 +25,7 @@ module.exports = () => {
                 }
             }
             else
-                res.status(400).json('token missing');
+                res.status(400).json('bearer token missing');
         }
     }
 }

@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   // nom de la table
   const post = sequelize.define("posts", {
       // chaque champ est définie dans cet objet
-    id_posts: {
+    id_post: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -18,11 +18,11 @@ module.exports = (sequelize) => {
         key: 'id_users'
       }
     },
-    content_posts: {
+    content_post: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    like_posts: {
+    like_post: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

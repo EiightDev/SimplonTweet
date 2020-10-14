@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const EMAIL_REGEX     = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const PASSWORD_REGEX  = /^(?=.*\d).{4,8}$/;
 
-exports.init = function (bdd) {
+exports.init = (bdd) => {
   return {
     getAll: function (req, res) {
       bdd.models.User.findAll().then((result) => res.send(result)).catch((err) => res.send(err))
@@ -58,5 +58,22 @@ exports.init = function (bdd) {
         }
       });
     },
+    update: function (req, res) {
+      console.log(req.body);
+      bdd.models.User.update({
+            nom_users: req.body.nom,
+            prenom_users: req.body.prenom,
+            pseudo_users: req.body.pseudo,
+            mail_users: req.body.mail,
+      }, {
+        where : {
+            id_users: req.body.id
+        }
+      }).then((result) => res.send(result))
+      .catch((err) => res.send(err));
+    },
+    desactivate: function (req, res) {
+      bdd.models.User.update().then().catch()
+    }
   };
 };
