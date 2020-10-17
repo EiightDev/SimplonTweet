@@ -11,6 +11,13 @@ class Post extends React.Component {
       <Article />
       <Article />
       <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
       </div>
     );
   }
