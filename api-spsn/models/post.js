@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
   }, {
     classMethods: {
       asssociate: (models) => {
-        models.post.belongsTo(models.user, {
+        models.Post.belongsTo(models.User, {
           foreignKey: {
             allowNull: false
           }

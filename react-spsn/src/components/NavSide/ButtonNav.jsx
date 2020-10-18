@@ -1,7 +1,7 @@
 import React from "react";
 
 class ButtonNav extends React.Component {
-  onligne = 0;
+  onligne = 1;
 
   render() {
     if (this.onligne)

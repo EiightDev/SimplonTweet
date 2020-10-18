@@ -1,3 +1,5 @@
+const user = require("../models/user");
+
 exports.init = (bdd) => {
   return {
     getAll: function (req, res) {

@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
   }, {
     classMethods: {
       associates: (models) => {
-        models.user.hasMany(models.post)
+        models.User.hasMany(models.Post)
       }
     }
   });

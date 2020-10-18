@@ -32,11 +32,11 @@ class ListeFollow extends React.Component {
           {listeFollow.map((users, i) => {
             return (
               <div key={i} className="media text-muted pt-3 badge">
-                <img className='mr-2' src={users.avatar_utilisateur} alt="" />
+                <img className='mr-2' src={users.avatar_utilisateur} alt=" " />
                 <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                   <div className="d-flex justify-content-between align-items-center w-100">
                     <strong className="text-gray-dark">Full Name</strong>
-                    <a id={users.id_utilisateur} href="#">
+                    <a id={users.id_utilisateur} href="/">
                       Voir les posts...
                     </a>
                   </div>
@@ -46,7 +46,7 @@ class ListeFollow extends React.Component {
             );
           })}
           <small className="d-block text-right mt-3">
-            <a href="#">Tous les followers...</a>
+            <a href="/">Tous les followers...</a>
           </small>
         </div>
       </div>
