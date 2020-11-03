@@ -31,11 +31,11 @@ class Post extends React.Component {
             return (
               <Article
                 key={i}
-                id={post.id_post}
-                content={post.content_post}
+                id={post.id_posts}
+                content={post.content_posts}
                 pseudo={post.id_users}
                 date={post.updatedAt}
-                like={post.like_post}
+                like={post.like_posts}
               />
             );
           })}
