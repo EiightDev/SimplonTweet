@@ -1,52 +1,73 @@
- body {
-  background-color: #e6ecf0;
+body {
+  background-color: #f5f5f5;
   justify-content: center;
-
-  height: 100vh;
-  overflow-x: hidden ;
-}
-h6 {
-  margin: 15px 0px;
+  overflow-x: hidden;
+  font-family: "Nunito Sans", sans-serif;
 }
 
-nav, main{
-  height: calc(100vh - 40px);
-  margin: 20px 0;
+a,
+h6,
+.colorSimpl {
+  color: #ce0033;
 }
-nav div, main div{
+strong {
+  font-size: 0.7rem;
+}
+article strong {
+  font-size: 0.8rem;
+  color: #ce0033;
+}
+.btn-primary,
+.btn-danger {
+  background-color: #ce0033;
+  border: 1px solid #ce0033;
+}
+.btn-danger:hover,
+.btn-primary:hover {
+  background-color: #f5f5f5;
+  border: 1px solid #ce0033;
+  color: #ce0033;
+}
+
+nav div,
+main div {
   background-color: whitesmoke;
   border-radius: 5px;
+}
+.logo {
+  width: 32px;
+  height: 32px;
 }
 .badge {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
 
   width: 100%;
   border-radius: 10px;
   margin-top: 5px;
-  padding: 0 15px 0 15px ;
-} 
-.badge picture {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
-.badge img {
-  overflow: hidden;
-  height: 50px;
-  width: 50px;
+.badge img,
+.avatar {
+  height: 32px;
+  width: 32px;
 
-  border: 1px solid tomato;
-  border-radius: 25px;
+  border: 1px solid #ce0033;
+  border-radius: 20px;
 }
-.badge p{
-  margin: 0;
+.badge span {
+  display: flex !important;
+  margin-top: 5px;
+  color: #ce0033;
 }
 .badgePost {
   justify-content: flex-start;
 }
-.badgePost button{
+.badgePost button {
   justify-self: flex-end;
+}
+
+@media screen and (max-width: 767px) {
+  #navside {
+    display: none;
+  }
 }

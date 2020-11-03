@@ -28,7 +28,7 @@ class ListeFollow extends React.Component {
     return (
       <div>
         <div className="my-3 p-3 bg-white rounded shadow-sm">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Tes Followers</h6>
+          <h6 className="border-bottom border-gray pb-2 mb-0">Suggestion</h6>
           {listeFollow.map((users, i) => {
             return (
               <div key={i} className="media text-muted pt-3 badge">
@@ -37,7 +37,7 @@ class ListeFollow extends React.Component {
                   <div className="d-flex justify-content-between align-items-center w-100">
                     <strong className="text-gray-dark">Full Name</strong>
                     <a id={users.id_utilisateur} href="/">
-                      Voir les posts...
+                      Suivre
                     </a>
                   </div>
                   <span className="d-block">@{users.pseudo_utilisateur}</span>
@@ -46,7 +46,7 @@ class ListeFollow extends React.Component {
             );
           })}
           <small className="d-block text-right mt-3">
-            <a href="/">Tous les followers...</a>
+            <a href="/">Rechercher...</a>
           </small>
         </div>
       </div>

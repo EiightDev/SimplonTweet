@@ -1,37 +1,36 @@
 import React from "react";
+import PostButton from "./PostButton";
 
 class Article extends React.Component {
-  render() {
-    return (
-      <article class="">
-        <div className="col-md-12 badge badgePost">
-          <picture>
-            <img src="img/avatar-placeholder.png" alt="" />
-          </picture>
-          <p>Utilisateur</p>
-          <button>like</button>
-        </div>
+  user = 1;
+  id_auteur = 1;
+  onligne = true;
+  constructor(props) {
+    super(props);
+  }
 
-        <div>
-          <h1>Alice in Wonderland, part dos</h1>
-          <p>
-            'You ought to be ashamed of yourself for asking such a simple
-            question,' added the Gryphon; and then they both sat silent and
-            looked at poor Alice, who felt ready to sink into the earth. At last
-            the Gryphon said to the Mock Turtle, 'Drive on, old fellow! Don't be
-            all day about it!' and he went on in these words: 'Yes, we went to
-            school in the sea, though you mayn't believe it—' 'I never said I
-            didn't!' interrupted Alice. 'You did,' said the Mock Turtle.
-          </p>
-        </div>
-        <span class="badge">Posted 2012-08-02 20:47:04</span>
-        <div class="pull-right">
-          <button>modifier</button>
-          <button>supprimer</button>
-        </div>
-        <hr></hr>
-      </article>
-    );
+  render() {
+    if (this.user === this.id_auteur)
+      return (
+        <article key= {this.props.key} idpost={this.props.id} className="my-3 p-3 bg-white rounded shadow-sm">
+          <div className="media text-muted pt-3">
+            <img
+              className=" ml-2 mr-2 avatar"
+              src="img/avatar-placeholder.png"
+              alt=""
+            />
+            <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+              <div className="d-flex justify-content-between align-items-center w-100">
+                <strong className="">@{this.props.pseudo}</strong>
+                <span className="text-gray-dark mr-3">{this.props.date}</span>
+              </div>
+              {this.props.content}
+            </div>
+          </div>
+          <PostButton like={this.props.like}></PostButton>
+        </article>
+      );
+    else return <div> Ce post n'est pas le tien</div>;
   }
 }
 
