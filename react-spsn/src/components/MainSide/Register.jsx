@@ -1,7 +1,42 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nom: "",
+      prenom: "",
+      pseudo: "",
+      mail: "",
+      password: "",
+    };
+  }
+  register = () => {
+    fetch("http://localhost:3333/user/register", {
+      nom: this.state.nom,
+      prenom: this.state.prenom,
+      pseudo: this.state.pseudo,
+      mail: this.state.mail,
+      password: this.state.password,
+    }).then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        this.props.history.push("/signin");
+      }
+    });
+  };
+  
+  handleChange = (event) => {
+    let key = event.target.id
+    let value = event.target.value
+    this.setState({[key]:value})
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div className="col-md-10 mt-5 mx-auto">
@@ -9,37 +44,35 @@ class Register extends React.Component {
         <form className="needs-validation" noValidate="">
           <div className="row">
             <div className="col-md-6 mb-3">
-              <label forhtml="firstName">Prénom</label>
+              <label forhtml="prenom">Prénom</label>
               <input
                 type="text"
                 className="form-control"
-                id="firstName"
+                id="prenom"
                 placeholder="Prénom"
-                value=""
-                required=""for
+                required=""
+                onChange ={this.handleChange}
               />
               <div className="invalid-feedback">
                 Un prénom valide est requis
               </div>
             </div>
             <div className="col-md-6 mb-3">
-              <label forhtml="lastName">Nom</label>
+              <label forhtml="nom">Nom</label>
               <input
                 type="text"
                 className="form-control"
-                id="lastName"
+                id="nom"
                 placeholder="Nom"
-                value=""
                 required=""
+                onChange ={this.handleChange}
               />
-              <div className="invalid-feedback">
-              Un nom valide est requis
-              </div>
+              <div className="invalid-feedback">Un nom valide est requis</div>
             </div>
           </div>
 
           <div className="mb-3">
-            <label forhtml="username">Pseudonyme</label>
+            <label forhtml="pseudo">Pseudonyme</label>
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">@</span>
@@ -47,40 +80,58 @@ class Register extends React.Component {
               <input
                 type="text"
                 className="form-control"
-                id="username"
+                id="pseudo"
                 placeholder="MonPseudo"
                 required=""
+                onChange ={this.handleChange}
               />
-              <div className="invalid-feedback">Un pseudo valide est requis.</div>
+              <div className="invalid-feedback">
+                Un pseudo valide est requis.
+              </div>
             </div>
           </div>
 
           <div className="mb-3">
-            <label forhtml="email">
-              Email
-            </label>
+            <label forhtml="mail">Email</label>
             <input
               type="email"
               className="form-control"
-              id="email"
+              id="mail"
               placeholder="email@exemple.com"
+              onChange ={this.handleChange}
             />
             <div className="invalid-feedback">
               Merci d'entrer un e-mail valide.
             </div>
           </div>
-          <button className="btn btn-primary btn-lg btn-block mb-3" type="submit">
+          <div className="form-group">
+              <label htmlFor="password">Mot de passe</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="form-control"
+                aria-describedby="emailHelp"
+                minLength="8"
+                maxLength="16"
+                placeholder="Entrez un mot de passe (entre 8 et 16 characteres)"
+                onChange ={this.handleChange}
+              />
+          </div>
+          <button
+            className="btn btn-primary btn-lg btn-block mb-3"
+            type="submit"
+            onClick={this.handleSubmit}
+          >
             Valider
           </button>
         </form>
         <div className="form-group">
-                <p className="text-center">
-                  Vous avez déja un compte ?<br />
-                  <Link to='/signin'>
-                    Connectez-vous !
-                  </Link>
-                </p>
-              </div>
+          <p className="text-center">
+            Vous avez déja un compte ?<br />
+            <Link to="/signin">Connectez-vous !</Link>
+          </p>
+        </div>
       </div>
     );
   }

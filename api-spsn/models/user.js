@@ -1,8 +1,9 @@
 const { DataTypes } = require("sequelize");
 
-module.exports = (sequelize) => {
-  // nom de la table
-  const user = sequelize.define("users", {
+const sequelize = require('./setup');
+
+ // nom de la table
+  const userModel = sequelize.define("users", {
       // chaque champ est définie dans cet objet
     id_users: {
       type: DataTypes.INTEGER,
@@ -33,12 +34,6 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  }, {
-    classMethods: {
-      associates: (models) => {
-        models.User.hasMany(models.Post)
-      }
-    }
   });
-  return user; //On retourne le model de la table
-};
+ 
+  module.exports = userModel;

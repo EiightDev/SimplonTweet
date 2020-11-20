@@ -1,0 +1,39 @@
+GET http://localhost:3333/post/getAll
+
+###
+PATCH http://localhost:3333/post/update
+Content-Type: application/json; charset=utf-8
+# {
+#     id: "id du post",
+#     content: "contenu du post"
+# }
+
+###
+DELETE http://localhost:3333/post/delete
+content-type: application/json
+
+# {
+#     "id": 12
+# }
+
+
+###
+POST http://localhost:3333/post/update
+
+###
+POST http://localhost:3333/user/login
+
+###
+POST http://localhost:3333/user/register
+{
+    nom,
+    prenom,
+    pseudo,
+    mail,
+    password
+}
+###
+GET http://localhost:3333/user/getAll
+
+###
+PATCH http://localhost:3333/user/update
