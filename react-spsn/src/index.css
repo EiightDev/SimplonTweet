@@ -6,6 +6,7 @@ body {
   justify-content: center;
   overflow-x: hidden;
   font-family: "Nunito Sans", sans-serif;
+  max-width: rem;
 }
 
 a,

@@ -1,0 +1,75 @@
+{
+  "user": {"id_users": 777,"onligne": true, "token": "ouict1token" , "nom": "Eiight", "prenom": "Mustapha", "pseudo": "EiightDev", "mail": "eiight@dev.com", "password": "EiightDevMdp" },
+  "post": [
+    {
+      "id_posts": 1,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 140
+    },
+    {
+      "id_posts": 2,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 50
+    },
+    {
+      "id_posts": 3,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 4,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 5,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 6,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 7,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 8,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 9,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    },
+    {
+      "id_posts": 10,
+      "content_posts": "Ceci est un message de post",
+      "id_users": "Georges",
+      "updatedAt": "01-01-2020",
+      "like_posts": 40
+    }
+  ]
+}
