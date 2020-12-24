@@ -5,23 +5,28 @@ exports.getAll = function (req, res) {
     .then((result) => res.send(result))
     .catch((err) => res.send(err));
 };
+exports.getByUser = function (req, res) {
+  models.Post.findAll({where:{ownerIdUser: req.params.idUser}})
+    .then((result) => res.send(result))
+    .catch((err) => res.send(err));
+};
 
 exports.add = function (req, res) {
   models.Post.create({
-    content_posts: req.body.content,
-    userIdUsers: req.body.id_author,
+    content: req.body.content,
+    ownerIdUser: req.body.id_author,
   })
-    .then((result) => res.send(result + "- Votre post à bien été créé !"))
+    .then((result) => res.send(result + "- Votre post à bien été créé ! -"))
     .catch((err) => res.send(err));
 };
 
 exports.update = function (req, res) {
   models.Post.update(
     {
-      content_posts: req.body.content,
+      content: req.body.content,
     },
     {
-      where: { id_posts: req.body.id },
+      where: { id_post: req.body.id },
     }
   )
     .then((result) => res.send(result))
@@ -30,7 +35,7 @@ exports.update = function (req, res) {
 
 exports.delete = function (req, res) {
   models.Post.destroy({
-    where: { id_posts: req.body.id },
+    where: { id_post: req.body.id },
   })
     .then((result) =>
       res.send(result + ` - Le post ${req.body.id} à bien été suprimmé`)

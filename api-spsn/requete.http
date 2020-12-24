@@ -16,7 +16,6 @@ content-type: application/json
 #     "id": 12
 # }
 
-
 ###
 POST http://localhost:3333/post/update
 
@@ -24,14 +23,16 @@ POST http://localhost:3333/post/update
 POST http://localhost:3333/user/login
 
 ###
-POST http://localhost:3333/user/register
+POST http://localhost:3333/user/register HTTP/1.1
+content-type: application/json
 {
-    nom,
-    prenom,
-    pseudo,
-    mail,
-    password
+    "nom": "Mustapha",
+    "prenom": "Eiight",
+    "pseudo": "EiightDev",
+    "mail": "eiight@dev.com",
+    "password": "eiightmdp"
 }
+
 ###
 GET http://localhost:3333/user/getAll
 

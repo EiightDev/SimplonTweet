@@ -1,6 +1,6 @@
 export default class AuthenticationService {
 
-  static isAuthenticated= true;
+  static isAuthenticated= false;
 
   static login(pseudo, password){
     

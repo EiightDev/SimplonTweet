@@ -1,22 +1,21 @@
 const { DataTypes } = require("sequelize");
-
 const sequelize = require("./setup");
 // nom de la table
-const postModel = sequelize.define("posts", {
+const postModel = sequelize.define("post", {
   // chaque champ est définie dans cet objet
-  id_posts: {
+  id_post: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
-  content_posts: {
+  content: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  like_posts: {
+  like: {
     type: DataTypes.INTEGER,
     allowNull: false,
-  },
+  }
 });
 module.exports = postModel;

@@ -20,7 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const Route = require("./routes/routes");
-app.use("/", Route);
+app.use("", Route);
+
 
 const port = process.env.PORT || 8000;
 

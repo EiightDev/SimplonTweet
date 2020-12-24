@@ -1,36 +1,33 @@
 const { DataTypes } = require("sequelize");
-
 const sequelize = require('./setup');
 
  // nom de la table
-  const userModel = sequelize.define("users", {
+  const userModel = sequelize.define("user", {
       // chaque champ est définie dans cet objet
-    id_users: {
+    id_user: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    nom_users: {
+    last_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    prenom_users: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    pseudo_users: {
+    username: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
     },
-    mail_users: {
+    mail: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
       isEmail: true,
     },
-    password_users: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },

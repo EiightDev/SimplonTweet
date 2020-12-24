@@ -1,41 +1,14 @@
 const { DataTypes } = require("sequelize");
+const sequelize = require('./setup');
 
-module.exports = (sequelize) => {
-  // nom de la table
-  const follow = sequelize.define(
-    "follow",
-    {
-      // chaque champ est définie dans cet objet
-      id_suivi: {
-        primaryKey: true,
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Users",
-          key: "id_users",
-        },
-      },
-      id_suiveur: {
-        primaryKey: true,
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Users",
-          key: "id_users",
-        },
-      },
-    },
-    {
-      classMethods: {
-        asssociate: (models) => {
-          models.follow.belongsTo(models.user, {
-            foreignKey: {
-              allowNull: false,
-            },
-          });
-        },
-      },
-    }
-  );
-  return follow; //On retourne le model de la table
-};
+// nom de la table
+const followModel = sequelize.define("follow", {
+    // chaque champ est définie dans cet objet
+  
+}, {
+    timestamps: true,
+    createdAt: false,
+    updatedAt: false
+  });
+
+module.exports = followModel;

@@ -12,4 +12,8 @@ const bdd = new Sequelize(
   }
 );
 
+bdd.authenticate()
+  .then(_ => console.log('-- La connexion à la base de données a bien été établie. --'))
+  .catch(error => console.error(`Imposible de se connecter à la base de données ${error}`))
+
 module.exports = bdd;
