@@ -28,6 +28,6 @@ const port = process.env.PORT || 8000;
 // Ecoute du port uniquement si sequelize atteint la bdd
 bdd.sync({alter:true}).then(() => {
   app.listen(port, () => {
-    console.log(`L'application s'éxécute dans http://localhost:${port}`);
+    console.log(`-- L'application s'éxécute dans http://localhost:${port} --`);
   });
 });

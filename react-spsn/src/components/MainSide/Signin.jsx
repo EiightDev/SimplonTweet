@@ -4,22 +4,22 @@ import { useHistory, Link } from "react-router-dom";
 import AuthenticationService from "../../services/authentication-service";
 
 const SignIn = () => {
-
   const history = useHistory();
 
   const [message, setMessage] = useState("Vous êtes déconnecté");
 
   const [form, setForm] = useState({
-    pseudo: {value:""},
-    password: {value:""},
+    pseudo: { value: "" },
+    password: { value: "" },
   });
   const validateForm = () => {
+    //si pseudo ne coreespondent pas return false
     return true;
   };
   const handleChange = (e) => {
-    const newField = { [e.target.name]: {value:e.target.value }};
+    const newField = { [e.target.name]: { value: e.target.value } };
     console.info(newField);
-    setForm({...form, ...newField});
+    setForm({ ...form, ...newField });
   };
 
   const handleSubmit = (event) => {
@@ -27,18 +27,16 @@ const SignIn = () => {
     console.warn(form);
 
     const isFormValid = validateForm();
+
     if (isFormValid) {
       setMessage("👉 Tentative de connexion en cours ...");
-      AuthenticationService.login(form.pseudo.value, form.password.value).then(
-        (isAuthenticated) => {
-          if (!isAuthenticated) {
-            setMessage("🔐 Identifiant ou mot de passe incorrect.");
-            return;
-          }
+      AuthenticationService.login(form.pseudo.value, form.password.value);
 
-          history.push("/post");
-        }
-      );
+      if (AuthenticationService.isAuthenticated === false) {
+        setMessage("🔐 Identifiant ou mot de passe incorrect.");
+        return;
+      }
+      history.push("/post");
     }
   };
 

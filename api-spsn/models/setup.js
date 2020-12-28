@@ -8,12 +8,19 @@ const bdd = new Sequelize(
   {
     port: process.env.DB_PORT,
     host: process.env.DB_HOST,
-    dialect: "mysql"
+    dialect: "mysql",
   }
 );
 
-bdd.authenticate()
-  .then(_ => console.log('-- La connexion à la base de données a bien été établie. --'))
-  .catch(error => console.error(`Imposible de se connecter à la base de données ${error}`))
+bdd
+  .authenticate()
+  .then((_) =>
+    console.log("-- La connexion à la base de données a bien été établie. --")
+  )
+  .catch((error) =>
+    console.error(
+      `!! Impossible de se connecter à la base de données -- ${error} !!`
+    )
+  );
 
 module.exports = bdd;

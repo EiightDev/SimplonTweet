@@ -30,7 +30,7 @@ const sequelize = require('./setup');
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    }
   });
  
   module.exports = userModel;

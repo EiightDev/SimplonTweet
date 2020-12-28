@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AuthenticationService from "../../services/authentication-service";
 
 class Register extends React.Component {
   constructor(props) {
@@ -13,18 +14,14 @@ class Register extends React.Component {
     };
   }
   register = () => {
-    fetch("http://localhost:3333/user/register", {
-      nom: this.state.nom,
-      prenom: this.state.prenom,
-      pseudo: this.state.pseudo,
-      mail: this.state.mail,
-      password: this.state.password,
-    }).then((response) => {
-      console.log(response);
-      if (response.status === 200) {
-        this.props.history.push("/signin");
-      }
-    });
+    AuthenticationService.register(
+      this.state.nom,
+      this.state.prenom,
+      this.state.mail,
+      this.state.pseudo,
+      this.state.password,
+    )
+    this.props.history.push('/post')
   };
   
   handleChange = (event) => {
@@ -35,6 +32,7 @@ class Register extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
+    this.register()
   }
 
   render() {

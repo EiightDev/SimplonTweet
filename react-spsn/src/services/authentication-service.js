@@ -1,33 +1,64 @@
+import axios from "axios";
+
 export default class AuthenticationService {
+  static isAuthenticated = () => {
+    const stateAuth = window.localStorage.getItem("isAuthenticated");
+    if (stateAuth !== "true") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  // static login(pseudo, password){
 
-  static isAuthenticated= false;
+  //   const isAuthenticated = (pseudo == 'test' && password == 'test');
 
-  static login(pseudo, password){
-    
-    const isAuthenticated = (pseudo == 'test' && password == 'test');
-    
-    return new Promise(resolve => {
-      setTimeout(() => {
-        this.isAuthenticated = isAuthenticated;
-        resolve(isAuthenticated);
-      }, 1000);
-    });
+  //   return new Promise(resolve => {
+  //     setTimeout(() => {
+  //       this.isAuthenticated = isAuthenticated;
+  //       resolve(isAuthenticated);
+  //     }, 1000);
+  //   });
+  // }
+  static register(nom, prenom, mail, pseudo, password) {
+    axios
+      .post("http://localhost:3333/user/register", {
+          nom: nom,
+          prenom: prenom,
+          pseudo: pseudo,
+          mail: mail,
+          password: password,
+        })
+        .then((response) => {
+          console.log(response);
+          if (response.status === 200) {
+            this.login(pseudo, password)
+          }
+        });
+      }
+  
+  static login(pseudo, password) {
+    axios
+      .post("http://localhost:3333/user/login", {
+        pseudo: pseudo,
+        password: password,
+      })
+      .then((response) => {
+        const jwt = response.data;
+        window.localStorage.setItem("jwt", jwt);
+        if (jwt) {
+          let isAuth = true;
+          window.localStorage.setItem("isAuthenticated", isAuth);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        let isAuth = false;
+        window.localStorage.setItem("isAuthenticated", isAuth);
+      });
+  }
+
+  static logout() {
+    window.localStorage.clear();
   }
 }
-
-//TO DO
-  // const login = () => {
-  //   fetch("http://localhost:3333/user/signin", {
-  //     pseudo: this.state.pseudo,
-  //     password: this.state.password,
-  //   }).then((response) => {
-  //     console.log(response);
-  //     const jwt = response.data; // to rceive the JWT from b/e
-  //     const storage = window.localStorage;
-  //     storage.setItem("jwt", jwt);
-  //     console.log(jwt);
-  //     if (jwt) {
-  //       this.props.history.push("/");
-  //     }
-  //   });
-  // };

@@ -5,9 +5,8 @@ import AuthenticationService from '../services/authentication-service';
 //Route Privée pour Utilisateur Authentifié
 export const PrivateRoute = ({Component, ...rest }) => (
   <Route {...rest} render={(props) => {
-    const isAuthenticated = AuthenticationService.isAuthenticated;
-    if (!isAuthenticated) {    
-      return <Redirect to={{ pathname: '/' }} />
+    if (AuthenticationService.isAuthenticated() === false) {    
+      return <Redirect to='/' />
     }
     return <Component {...props} />
   }} />
@@ -15,9 +14,8 @@ export const PrivateRoute = ({Component, ...rest }) => (
 
 export const OnLigneRoute = ({Component, ...rest }) => (
   <Route {...rest} render={(props) => {
-    const isAuthenticated = AuthenticationService.isAuthenticated;
-    if (isAuthenticated) {    
-      return <Redirect to={{ pathname: '/post' }} />
+    if (AuthenticationService.isAuthenticated()) {    
+      return <Redirect to={'/post' } />
     }
     return <Component {...props} />
   }} />
