@@ -1,9 +1,9 @@
 import React from "react";
 
-import BadgeProfil from "./NavSide/BadgeProfil";
-import ListeFollow from "./NavSide/ListeFollow";
-import ListeSuggestion from "./NavSide/ListeSuggestion";
-import ButtonNav from "./NavSide/ButtonNav";
+import BadgeProfil from "../components/NavSide/BadgeProfil";
+import ListeFollow from "../components/NavSide/ListeFollow";
+import ListeSuggestion from "../components/NavSide/ListeSuggestion";
+import ButtonNav from "../components/NavSide/ButtonNav";
 
 class NavSide extends React.Component {
   render() {

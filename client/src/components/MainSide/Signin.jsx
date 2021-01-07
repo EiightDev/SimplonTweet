@@ -12,13 +12,13 @@ const SignIn = () => {
     pseudo: { value: "" },
     password: { value: "" },
   });
+
   const validateForm = () => {
     //si pseudo ne coreespondent pas return false
     return true;
   };
   const handleChange = (e) => {
     const newField = { [e.target.name]: { value: e.target.value } };
-    console.info(newField);
     setForm({ ...form, ...newField });
   };
 
@@ -29,9 +29,10 @@ const SignIn = () => {
     const isFormValid = validateForm();
 
     if (isFormValid) {
+      
       setMessage("👉 Tentative de connexion en cours ...");
       AuthenticationService.login(form.pseudo.value, form.password.value);
-
+console.log("le formulaire est valide");
       if (AuthenticationService.isAuthenticated === false) {
         setMessage("🔐 Identifiant ou mot de passe incorrect.");
         return;

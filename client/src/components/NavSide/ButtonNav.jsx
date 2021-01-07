@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AuthenticationService from "../../services/authentication-service";
 import { useHistory } from "react-router-dom";
 

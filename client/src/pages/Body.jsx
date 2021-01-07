@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import {PrivateRoute, OnLigneRoute} from './CustomRoute'
 
-import NotFound from "./MainSide/NotFound";
-import Register from "./MainSide/Register";
-import Welcome from "./MainSide/Welcome";
-import Post from "./MainSide/Post";
-import SignIn from "./MainSide/Signin";
-import UpdateUser from "./MainSide/UpdateUser";
+import NotFound from "../components/MainSide/NotFound";
+import Register from "../components/MainSide/Register";
+import Welcome from "../components/MainSide/Welcome";
+import Post from "../components/MainSide/Post";
+import SignIn from "../components/MainSide/Signin";
+import UpdateUser from "../components/MainSide/UpdateUser";
 
 import NavSide from "./Nav";
 import Header from "./Header";
